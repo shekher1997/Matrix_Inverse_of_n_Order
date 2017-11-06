@@ -78,8 +78,8 @@ int main(){
                 int aik = aik*(-1);
             }
             int lk = m - 1;
-            float kl = det(B,lk);
-            C[i][j] = aik*k;
+            float Dk = det(B,lk);
+            C[i][j] = aik*Dk;
             n++;
         }
     }
