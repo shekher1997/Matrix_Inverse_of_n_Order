@@ -2,7 +2,7 @@
 
 // Function to claculate determinant of nxn matrix.
 
-float det(float A[50][50], int m)
+float det(int m, float A[m][m])
 {
     int pr, j, p, q, t, r, s;
     float C[50], d = 0, B[50][50];
@@ -37,7 +37,7 @@ float det(float A[50][50], int m)
     for (t = 1, pr = 1; t <= 1 + j; t++)
     {
         pr = (-1) * pr;
-        C[j] = pr * det(B, m - 1);
+        C[j] = pr * det(m-1,B);
     }
     for (j = 1, d = 0; j <= m; j++)
     {
@@ -98,7 +98,8 @@ int main()
                 float aik = aik * (-1);
             }
             int lk = m - 1;
-            float Dk = det(B, lk);
+            float Dk = det(lk,B);
+            // printf("%f",Dk);
             C[i][j] = aik * Dk;
             n++;
         }
@@ -114,13 +115,20 @@ int main()
         }
     }
 
-    float D = det(A, m);
+    float D = det(m,A);
 
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < m; j++)
         {
             C[i][j] = C[i][j] / D;
+        }
+    }
+
+    for (i=0 ; i<m ; i++){
+        for (j=0 ; j<m ; j++){
+            printf("%f",C[i][j]);
+
         }
     }
 }
